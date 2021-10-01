@@ -1,0 +1,52 @@
+// C++ program for implementing
+// Mid-Point Circle Drawing Algorithm
+
+#include<iostream>
+using namespace std;
+
+void midPointCircleDraw(int x_centre, int y_centre, int r)
+{
+	int y = r, x = 0;
+	
+	cout << "(" << x + x_centre << ", " << y + y_centre << ") \n\n";
+	
+
+	
+	// Initialising the value of P
+	int P = 1 - r;
+	
+	cout << "The initial decision parameter is : "<< P << " and "; 
+	
+	while (x <= y)
+	{
+		x++;
+		
+		// Mid-point is inside or on the perimeter
+		if (P < 0)
+			P = P + 2*x + 1;
+		// Mid-point is outside the perimeter
+		else
+		{
+			y--;
+			P = P + 2*x - 2*y + 1;
+		}
+		
+		
+		if(x>y)
+		    break;
+		
+		cout << "(" << x + x_centre << ", " << y + y_centre << ") \n";
+		cout << "The value of P is : " << P << " and ";
+		
+		
+	
+	}
+}
+
+// Driver code
+int main()
+{
+	// To draw a circle of radius 3 centred at (0, 0)
+	midPointCircleDraw(0, 0, 10);
+	return 0;
+}
